@@ -1,7 +1,9 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { login } from '../../actions/auth';
+import { connect } from 'react-redux';
 
-const Login = () => {
+const Login = ({ login }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -13,7 +15,7 @@ const Login = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    console.log('SUCCESS');
+    login(email, password);
   }
   return (
     <Fragment>
@@ -28,10 +30,6 @@ const Login = () => {
             value={email}
             onChange={e => onChange(e)}
             required />
-          <small className="form-text"
-          >This site uses Gravatar so if you want a profile image, use a
-              Gravatar email</small
-          >
         </div>
         <div className="form-group">
           <input
@@ -52,4 +50,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default connect(null, { login })(Login)
