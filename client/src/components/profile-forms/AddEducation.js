@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import { connect } from 'react-redux'
 import { addEducation } from '../../actions/profile'
+import { withRouter } from 'react-router-dom'
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
@@ -71,4 +72,4 @@ const AddEducation = ({ addEducation, history }) => {
 }
 
 
-export default connect(null, { addEducation })(AddEducation)
+export default connect(null, { addEducation })(withRouter(AddEducation))
