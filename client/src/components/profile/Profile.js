@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { getProfileById } from '../../actions/profile'
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
+import ProfileTop from './ProfileTop';
+import ProfileAbout from './ProfileAbout';
 
 const Profile = ({ getProfileById, match, auth, profile: { profile, loading } }) => {
   useEffect(() => {
@@ -21,6 +23,10 @@ const Profile = ({ getProfileById, match, auth, profile: { profile, loading } })
             </Link>
           )
         }
+        <div className="profile-grid my-1">
+          <ProfileTop profile={profile} />
+          <ProfileAbout profile={profile} />
+        </div>
       </Fragment>}
     </Fragment>
   )
